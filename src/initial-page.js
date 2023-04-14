@@ -1,4 +1,4 @@
-import chefImageSrc from "./chef.jpg";
+import loadHomeTab from "./home";
 import "./style.css";
 
 const loadInitialPage = () => {
@@ -15,35 +15,21 @@ const loadInitialPage = () => {
 
   const homeTab = document.createElement("a");
   homeTab.textContent = "Home";
-  homeTab.classList.add("tab-link");
+  homeTab.style.textDecoration = "underline";
+  homeTab.classList.add("tab-link", "home-link");
   const menuTab = document.createElement("a");
   menuTab.textContent = "Menu";
-  menuTab.classList.add("tab-link");
+  menuTab.classList.add("tab-link", "menu-link");
   const contactTab = document.createElement("a");
   contactTab.textContent = "Contact";
-  contactTab.classList.add("tab-link");
+  contactTab.classList.add("tab-link", "contact-link");
   tabsContainer.append(homeTab, menuTab, contactTab);
 
   header.appendChild(tabsContainer);
 
   content.appendChild(header);
 
-  const main = document.createElement("div");
-  main.classList.add("main");
-
-  const firstP = document.createElement("p");
-  firstP.textContent = "Best pizza in Italy";
-  const secondP = document.createElement("p");
-  secondP.textContent = "Made with passione since 1908";
-  const chefImg = document.createElement("img");
-  chefImg.classList.add("main-img");
-  chefImg.alt = "cool chef image";
-  chefImg.src = chefImageSrc;
-  const thirdP = document.createElement("p");
-  thirdP.textContent = "Order online or visit us!";
-  main.append(firstP, secondP, chefImg, thirdP);
-
-  content.appendChild(main);
+  loadHomeTab();
 };
 
 export default loadInitialPage;
